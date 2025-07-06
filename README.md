@@ -1,43 +1,30 @@
-# Projet E-commerce – Page d’Accueil
+# Page d’Accueil E-commerce
 
-Bienvenue sur le projet de page d’accueil pour un site e-commerce, développé avec HTML, CSS, Tailwind CSS et JavaScript. Ce projet vise à offrir une vitrine moderne, responsive et attrayante pour une boutique en ligne.
+Projet de page d’accueil pour une boutique en ligne, réalisé avec HTML, CSS (incluant Tailwind) et JavaScript.
 
-## Concept
+## À propos
 
-Ce projet propose une page d’accueil professionnelle pour un site e-commerce, mettant en avant :
-- Un design moderne et épuré grâce à Tailwind CSS
-- Une navigation intuitive pour les utilisateurs
-- Des sections pour les produits phares, les promotions, et les informations clés de la boutique
-- Une compatibilité mobile et desktop
+Interface moderne et responsive, adaptée à tous les écrans, mettant en avant les produits et les offres principales.
 
-## Structure du projet
+## Structure
 
-- `index.html` : page principale du site
-- `css/` : styles personnalisés et intégration de Tailwind
-- `js/` : scripts JavaScript pour l’interactivité
-- `img/` : images utilisées sur la page d’accueil
-- `fonts/` : polices et icônes (FontAwesome)
+- `index.html` : page principale
+- `css/` : styles personnalisés et Tailwind
+- `js/` : scripts pour l’interactivité
+- `img/` : images du site
+- `fonts/` : polices et icônes
 
 ## Fonctionnalités
 
-- Mise en page responsive (mobile, tablette, desktop)
-- Utilisation d’icônes FontAwesome
-- Animations et effets visuels modernes
-- Sections modulables : bannière, produits, témoignages, etc.
+- Design responsive
+- Navigation simple
+- Sections modulables (bannière, produits, etc.)
 
-## Installation & Utilisation
+## Utilisation
 
-1. Clone le projet ou télécharge le dossier.
-2. Ouvre `index.html` dans ton navigateur.
-3. Modifie les fichiers dans `css/`, `js/` ou `img/` selon tes besoins.
+1. Télécharger le dossier
+2. Ouvrir `index.html` dans un navigateur
 
-Aucune installation de dépendances n’est requise : tout fonctionne en local avec des fichiers statiques.
+---
 
-## Personnalisation
-
-- Pour changer les couleurs ou la mise en page, modifie `css/style.css` ou utilise les classes Tailwind dans le HTML.
-- Pour ajouter des produits ou des sections, édite simplement le HTML.
-
-## Auteur
-
-Projet réalisé par Ryan Neuville.
+Ryan Neuville
