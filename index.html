@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SteveShop - Votre Boutique de Confiance a Douala</title>
+    <meta name="description"
+        content="SteveShop, votre boutique preferee situee a IUC Akwa, Douala. Decouvrez nos produits de qualite et profitez de nos offres exceptionnelles.">
+
+    <link rel="stylesheet" href="css/style.css">
+
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.0/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+
+    <link rel="stylesheet" href="fonts/css/all.min.css">
+
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+</head>
+
+<body class="bg-base-100 scroll-smooth">
+    <!-- Navigation Bar -->
+    <div class="navbar bg-base-100 shadow-lg sticky top-0 z-50">
+        <div class="navbar-start">
+            <!-- Menu mobile -->
+            <div class="dropdown">
+                <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h8m-8 6h16"></path>
+                    </svg>
+                </div>
+                <ul tabindex="0"
+                    class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#categories">Categories</a></li>
+                    <li><a href="#produits">Produits</a></li>
+                    <li><a href="#about">A propos</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <!-- Logo et nom -->
+            <a href="#accueil" class="btn btn-ghost text-xl font-bold text-primary">
+                <i class="fas fa-store mr-2"></i>
+                SteveShop
+            </a>
+        </div>
+
+        <!-- Menu desktop -->
+        <div class="navbar-center hidden lg:flex">
+            <ul class="menu menu-horizontal px-1">
+                <li><a href="#accueil" class="hover:text-primary transition-colors">Accueil</a></li>
+                <li><a href="#categories" class="hover:text-primary transition-colors">Categories</a></li>
+                <li><a href="#produits" class="hover:text-primary transition-colors">Produits</a></li>
+                <li><a href="#about" class="hover:text-primary transition-colors">A propos</a></li>
+                <li><a href="#contact" class="hover:text-primary transition-colors">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- Section droite avec recherche et icones -->
+        <div class="navbar-end gap-2">
+            <div class="form-control hidden md:block">
+                <input type="text" placeholder="Rechercher..." class="input input-bordered input-sm w-auto" />
+            </div>
+            <div class="indicator">
+                <span class="indicator-item badge badge-secondary badge-sm">3</span>
+                <button class="btn btn-ghost btn-circle">
+                    <i class="fas fa-shopping-cart text-lg"></i>
+                </button>
+            </div>
+            <button class="btn btn-ghost btn-circle">
+                <i class="fas fa-user text-lg"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Section Hero -->
+    <section id="accueil" class="hero min-h-screen hero-bg relative overflow-hidden">
+        <div class="hero-content text-center text-white relative z-10">
+            <div class="max-w-2xl slide-in">
+                <div class="floating-animation mb-8">
+                    <i class="fas fa-gem text-6xl mb-4 text-yellow-300"></i>
+                </div>
+                <h1 class="text-5xl font-bold mb-6">
+                    Bienvenue chez <span class="text-yellow-300">SteveShop</span>
+                </h1>
+                <p class="text-xl mb-8 opacity-90">
+                    Votre boutique de confiance situee au coeur de Douala, IUC Akwa.
+                    Decouvrez nos produits authentiques et nos prix imbattables depuis 2018.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#produits" class="btn btn-warning btn-lg">
+                        <i class="fas fa-shopping-bag mr-2"></i>
+                        Voir nos Produits
+                    </a>
+                    <a href="#contact"
+                        class="btn btn-outline btn-lg text-white border-white hover:bg-white hover:text-gray-800">
+                        <i class="fas fa-map-marker-alt mr-2"></i>
+                        Nous Localiser
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Elements decoratifs -->
+        <div class="absolute top-20 left-10 w-32 h-32 bg-yellow-300 opacity-20 rounded-full animate-pulse"></div>
+        <div class="absolute bottom-20 right-10 w-24 h-24 bg-purple-300 opacity-30 rounded-full animate-bounce"></div>
+    </section>
+
+    <!-- Nos Categories -->
+    <section id="categories" class="py-16 bg-base-200">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-4xl font-bold mb-4">Nos Categories</h2>
+                <p class="text-lg opacity-70">Explorez notre large gamme de produits soigneusement selectionnes</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <!-- Mode & Style -->
+                <div class="card bg-base-100 shadow-xl card-hover transition-all duration-300">
+                    <div class="card-body text-center p-6">
+                        <div class="w-16 h-16 bg-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-tshirt text-2xl text-white"></i>
+                        </div>
+                        <h3 class="card-title justify-center text-lg">Mode & Style</h3>
+                        <p class="text-sm opacity-70">Vetements tendance</p>
+                        <div class="card-actions justify-center mt-4">
+                            <button class="btn btn-sm btn-primary">Explorer</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Electronique -->
+                <div class="card bg-base-100 shadow-xl card-hover transition-all duration-300">
+                    <div class="card-body text-center p-6">
+                        <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-mobile-alt text-2xl text-white"></i>
+                        </div>
+                        <h3 class="card-title justify-center text-lg">Electronique</h3>
+                        <p class="text-sm opacity-70">High-tech & gadgets</p>
+                        <div class="card-actions justify-center mt-4">
+                            <button class="btn btn-sm btn-primary">Explorer</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Beaute -->
+                <div class="card bg-base-100 shadow-xl card-hover transition-all duration-300">
+                    <div class="card-body text-center p-6">
+                        <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-gem text-2xl text-white"></i>
+                        </div>
+                        <h3 class="card-title justify-center text-lg">Beaute</h3>
+                        <p class="text-sm opacity-70">Cosmetiques & soins</p>
+                        <div class="card-actions justify-center mt-4">
+                            <button class="btn btn-sm btn-primary">Explorer</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accessoires -->
+                <div class="card bg-base-100 shadow-xl card-hover transition-all duration-300">
+                    <div class="card-body text-center p-6">
+                        <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-toolbox text-2xl text-white"></i>
+                        </div>
+                        <h3 class="card-title justify-center text-lg">Accessoires</h3>
+                        <p class="text-sm opacity-70">Bijoux & montres</p>
+                        <div class="card-actions justify-center mt-4">
+                            <button class="btn btn-sm btn-primary">Explorer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Produits Populaires -->
+    <section id="produits" class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-4xl font-bold mb-4">Nos Coups de Coeur</h2>
+                <p class="text-lg opacity-70">Les produits preferes de nos clients a Douala</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Produit 1 - Ensemble Africain -->
+                <div class="card bg-base-100 shadow-xl product-card">
+                    <figure class="relative">
+                        <div class="badge badge-secondary absolute top-2 left-2 z-10">Nouveau</div>
+                        <div class="badge badge-error absolute top-2 right-2 z-10">-22%</div>
+                        <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400&h=400&fit=crop"
+                            alt="Ensemble Africain Premium" class="h-48 w-full object-cover" />
+                    </figure>
+
+                    <div class="card-body">
+                        <h2 class="card-title text-lg">Ensemble Africain Premium</h2>
+                        <div class="flex items-center gap-2 mb-2">
+                            <div class="rating rating-sm">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                            </div>
+                            <span class="text-sm opacity-70">(4.8)</span>
+                        </div>
+
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="space-y-1">
+                                <span class="text-2xl font-bold text-primary">35,000 FCFA</span>
+                                <div class="text-sm line-through opacity-50">45,000 FCFA</div>
+                            </div>
+                        </div>
+
+                        <div class="card-actions justify-between">
+                            <button class="btn btn-outline btn-sm">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="btn btn-primary btn-sm flex-1">
+                                <i class="fas fa-shopping-cart mr-1"></i>
+                                Ajouter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produit 2 - Smartphone -->
+                <div class="card bg-base-100 shadow-xl product-card">
+                    <figure class="relative">
+                        <div class="badge badge-error absolute top-2 right-2 z-10">-17%</div>
+                        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop"
+                            alt="Smartphone Android" class="h-48 w-full object-cover" />
+                    </figure>
+
+                    <div class="card-body">
+                        <h2 class="card-title text-lg">Smartphone Android</h2>
+                        <div class="flex items-center gap-2 mb-2">
+                            <div class="rating rating-sm">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="far fa-star text-gray-300"></i>
+                            </div>
+                            <span class="text-sm opacity-70">(4.6)</span>
+                        </div>
+
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="space-y-1">
+                                <span class="text-2xl font-bold text-primary">125,000 FCFA</span>
+                                <div class="text-sm line-through opacity-50">150,000 FCFA</div>
+                            </div>
+                        </div>
+
+                        <div class="card-actions justify-between">
+                            <button class="btn btn-outline btn-sm">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="btn btn-primary btn-sm flex-1">
+                                <i class="fas fa-shopping-cart mr-1"></i>
+                                Ajouter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produit 3 - Sac a Main -->
+                <div class="card bg-base-100 shadow-xl product-card">
+                    <figure class="relative">
+                        <div class="badge badge-error absolute top-2 right-2 z-10">-20%</div>
+                        <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=400&fit=crop"
+                            alt="Sac a Main Cuir" class="h-48 w-full object-cover" />
+                    </figure>
+
+                    <div class="card-body">
+                        <h2 class="card-title text-lg">Sac a Main Cuir</h2>
+                        <div class="flex items-center gap-2 mb-2">
+                            <div class="rating rating-sm">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                            </div>
+                            <span class="text-sm opacity-70">(4.9)</span>
+                        </div>
+
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="space-y-1">
+                                <span class="text-2xl font-bold text-primary">28,000 FCFA</span>
+                                <div class="text-sm line-through opacity-50">35,000 FCFA</div>
+                            </div>
+                        </div>
+
+                        <div class="card-actions justify-between">
+                            <button class="btn btn-outline btn-sm">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="btn btn-primary btn-sm flex-1">
+                                <i class="fas fa-shopping-cart mr-1"></i>
+                                Ajouter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produit 4 - Kit Maquillage -->
+                <div class="card bg-base-100 shadow-xl product-card">
+                    <figure class="relative">
+                        <div class="badge badge-secondary absolute top-2 left-2 z-10">Nouveau</div>
+                        <div class="badge badge-error absolute top-2 right-2 z-10">-28%</div>
+                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&h=400&fit=crop"
+                            alt="Kit Maquillage Pro" class="h-48 w-full object-cover" />
+                    </figure>
+
+                    <div class="card-body">
+                        <h2 class="card-title text-lg">Kit Maquillage Pro</h2>
+                        <div class="flex items-center gap-2 mb-2">
+                            <div class="rating rating-sm">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="far fa-star text-gray-300"></i>
+                            </div>
+                            <span class="text-sm opacity-70">(4.7)</span>
+                        </div>
+
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="space-y-1">
+                                <span class="text-2xl font-bold text-primary">18,000 FCFA</span>
+                                <div class="text-sm line-through opacity-50">25,000 FCFA</div>
+                            </div>
+                        </div>
+
+                        <div class="card-actions justify-between">
+                            <button class="btn btn-outline btn-sm">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="btn btn-primary btn-sm flex-1">
+                                <i class="fas fa-shopping-cart mr-1"></i>
+                                Ajouter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <button class="btn btn-primary btn-wide">
+                    <i class="fas fa-plus mr-2"></i>
+                    Voir Plus de Produits
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offre Speciale -->
+    <section class="py-16 bg-gradient-to-r from-orange-400 to-pink-400">
+        <div class="container mx-auto px-4">
+            <div class="hero">
+                <div class="hero-content text-center text-white">
+                    <div class="max-w-lg">
+                        <div class="animate-bounce mb-4">
+                            <i class="fas fa-gift text-4xl"></i>
+                        </div>
+                        <h2 class="text-4xl font-bold mb-4">Offre Speciale du Mois !</h2>
+                        <p class="text-xl mb-6">
+                            Profitez de <span class="font-bold text-2xl">-25%</span> sur tous vos achats
+                            avec le code <span class="badge badge-warning text-black font-bold">STEVE25</span>
+                        </p>
+                        <div class="countdown font-mono text-2xl mb-6">
+                            <span style="--value:15;"></span>j
+                            <span style="--value:10;"></span>h
+                            <span style="--value:24;"></span>m
+                            <span style="--value:37;"></span>s
+                        </div>
+                        <button class="btn btn-warning btn-lg">
+                            Profiter de l'Offre
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Temognages -->
+    <section class="py-16 bg-base-200">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-4xl font-bold mb-4">Ce que disent nos Clients</h2>
+                <p class="text-lg opacity-70">Des temognages authentiques de notre communaute doualaise</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Temognage 1 -->
+                <div class="card bg-base-100 shadow-xl">
+                    <div class="card-body">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="avatar">
+                                <div class="w-12 rounded-full">
+                                    <img src="https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Ftse4.mm.bing.net%2Fth%2Fid%2FOIP.wy2ZZ_SFuKf3tQ0R8G-gvgHaFj%3Fpid%3DApi&sp=1751767754T1526e41ec2192ae07992397f9115c17ef5ca91543f00087289c771a752cc8740"
+                                        alt="Marie Ngono" />
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="font-bold">Elon Musk</h3>
+                                <p class="text-sm opacity-70">New York</p>
+                                <div class="rating rating-sm">
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <blockquote class="text-lg italic mb-4">
+                            "Steve est vraiment serieux dans son travail. J'achete toujours chez lui depuis 3 ans,
+                            jamais decue !"
+                        </blockquote>
+
+                        <div class="text-sm opacity-50 border-t pt-4">
+                            Il y a 1 semaine
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Temognage 2 -->
+                <div class="card bg-base-100 shadow-xl">
+                    <div class="card-body">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="avatar">
+                                <div class="w-12 rounded-full">
+                                    <img src="https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.CDQsbZA_Z7V8DTu3ZlBMFgHaE8%3Fpid%3DApi&sp=1751767895T1deed71e73fefde70aeba28ab67e4128a9f3696df7f29cd1c1ab87bd3294a365"
+                                        alt="Paul Atangana" />
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="font-bold">Steve jobs</h3>
+                                <p class="text-sm opacity-70">silicon valley</p>
+                                <div class="rating rating-sm">
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <blockquote class="text-lg italic mb-4">
+                            "Livraison rapide a Bonapriso, prix corrects et produits de qualite. Je recommande SteveShop
+                            !"
+                        </blockquote>
+
+                        <div class="text-sm opacity-50 border-t pt-4">
+                            Il y a 5 jours
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Temognage 3 -->
+                <div class="card bg-base-100 shadow-xl">
+                    <div class="card-body">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="avatar">
+                                <div class="w-12 rounded-full">
+                                    <img src="https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Ftse3.mm.bing.net%2Fth%2Fid%2FOIP.xnRzprRY-q3xUh1OcQDpiwHaFj%3Fpid%3DApi&sp=1751768045Tf6d2a8ca3be70bdf843fc43e6dde8a60a54bc51fc473ed92874a02abc1c04871"
+                                        alt="Grace Mballa" />
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="font-bold">Mark Zukerburg</h3>
+                                <p class="text-sm opacity-70">Akwa</p>
+                                <div class="rating rating-sm">
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <blockquote class="text-lg italic mb-4">
+                            "Excellent service client et conseils personnalises. C'est ma boutique preferee a Akwa !"
+                        </blockquote>
+
+                        <div class="text-sm opacity-50 border-t pt-4">
+                            Il y a 2 jours
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- A propos & Localisation -->
+    <section id="about" class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <h2 class="text-4xl font-bold mb-6">Notre Histoire</h2>
+                    <p class="text-lg mb-6 leading-relaxed">
+                        Fonde en 2018 par Steve Kamga, SteveShop est devenu une reference
+                        incontournable dans le quartier IUC Akwa a Douala. Notre passion pour
+                        la qualite et le service client nous distingue.
+                    </p>
+                    <p class="text-lg mb-8 leading-relaxed">
+                        Nous selectionnons minutieusement chaque produit pour vous offrir
+                        le meilleur rapport qualite-prix. Notre equipe locale connait parfaitement
+                        les besoins de la communaute doualaise.
+                    </p>
+
+                    <div class="stats stats-vertical lg:stats-horizontal shadow">
+                        <div class="stat">
+                            <div class="stat-figure text-primary">
+                                <i class="fas fa-users text-2xl"></i>
+                            </div>
+                            <div class="stat-title">Clients Satisfaits</div>
+                            <div class="stat-value text-primary">2,500+</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-figure text-secondary">
+                                <i class="fas fa-star text-2xl"></i>
+                            </div>
+                            <div class="stat-title">Note Moyenne</div>
+                            <div class="stat-value text-secondary">4.8/5</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card bg-base-100 shadow-xl fade-in">
+                    <div class="card-body">
+                        <h3 class="card-title">
+                            <i class="fas fa-map-marker-alt text-primary mr-2"></i>
+                            Notre Localisation
+                        </h3>
+                        <div id="map" class="mb-4">
+                            <iframe class="w-full rounded-lg shadow-lg"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3979.8103815349955!2d9.700348239857725!3d4.059048246901947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x106112670f1f509f%3A0xb3b964393a1a198c!2sInstitut%20Universitaire%20de%20la%20C%C3%B4te%20(IUC)%2C%20campus%20Akwa-Douala!5e0!3m2!1sfr!2scm!4v1751766836256!5m2!1sfr!2scm"
+                                height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                        <div class="space-y-2">
+                            <p><i class="fas fa-map-marker-alt text-primary mr-2"></i> IUC Akwa, Douala, Cameroun</p>
+                            <p><i class="fas fa-phone text-primary mr-2"></i> +237 010 001 110</p>
+                            <p><i class="fas fa-clock text-primary mr-2"></i> Lun-Sam: 8h00-19h00</p>
+                            <p><i class="fas fa-envelope text-primary mr-2"></i> steve@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-16 bg-base-200">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-4xl font-bold mb-4">Contactez-Nous</h2>
+                <p class="text-lg opacity-70">Une question ? Un besoin particulier ? Nous sommes la pour vous aider !
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="card bg-base-100 shadow-xl">
+                    <div class="card-body">
+                        <h3 class="card-title mb-6">Envoyez-nous un Message</h3>
+                        <form class="space-y-4" onsubmit="submitForm(event)">
+                            <div class="form-control">
+                                <label class="label">
+                                    <span class="label-text">Votre Nom</span>
+                                </label>
+                                <input type="text" placeholder="Ex: Jean Dupont" class="input input-bordered"
+                                    required />
+                            </div>
+                            <div class="form-control">
+                                <label class="label">
+                                    <span class="label-text">Email</span>
+                                </label>
+                                <input type="email" placeholder="jean@example.com" class="input input-bordered"
+                                    required />
+                            </div>
+                            <div class="form-control">
+                                <label class="label">
+                                    <span class="label-text">Sujet</span>
+                                </label>
+                                <select class="select select-bordered">
+                                    <option>Demande de renseignement</option>
+                                    <option>Commande speciale</option>
+                                    <option>Service apres-vente</option>
+                                    <option>Autre</option>
+                                </select>
+                            </div>
+                            <div class="form-control">
+                                <label class="label">
+                                    <span class="label-text">Message</span>
+                                </label>
+                                <textarea class="textarea textarea-bordered h-24"
+                                    placeholder="Votre message..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-full">
+                                <i class="fas fa-paper-plane mr-2"></i>
+                                Envoyer le Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="card bg-primary text-primary-content shadow-xl">
+                        <div class="card-body">
+                            <h3 class="card-title">
+                                <i class="fas fa-store mr-2"></i>
+                                Visitez Notre Boutique
+                            </h3>
+                            <p>Venez decouvrir nos produits en personne dans notre boutique chaleureuse situee au coeur
+                                d'IUC Akwa.</p>
+                        </div>
+                    </div>
+
+                    <div class="card bg-secondary text-secondary-content shadow-xl">
+                        <div class="card-body">
+                            <h3 class="card-title">
+                                <i class="fas fa-truck mr-2"></i>
+                                Livraison a Douala
+                            </h3>
+                            <p>Livraison gratuite dans un rayon de 10km autour d'Akwa. Commande minimum de 15,000 FCFA.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="card bg-accent text-accent-content shadow-xl">
+                        <div class="card-body">
+                            <h3 class="card-title">
+                                <i class="fas fa-headset mr-2"></i>
+                                Support Client
+                            </h3>
+                            <p>Notre equipe est disponible du lundi au samedi pour repondre a toutes vos questions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer footer-center p-10 bg-neutral text-neutral-content">
+        <aside>
+            <div class="text-3xl font-bold mb-4">
+                <i class="fas fa-store mr-2"></i>
+                SteveShop
+            </div>
+            <p class="font-bold">
+                Votre boutique de confiance depuis 2018
+            </p>
+            <p>Copyright © 2024 - Tous droits reserves - SteveShop Douala</p>
+        </aside>
+        <nav>
+            <div class="grid grid-flow-col gap-4">
+                <a href="#" class="btn btn-ghost btn-circle">
+                    <i class="fab fa-facebook-f text-xl"></i>
+                </a>
+                <a href="#" class="btn btn-ghost btn-circle">
+                    <i class="fab fa-instagram text-xl"></i>
+                </a>
+                <a href="#" class="btn btn-ghost btn-circle">
+                    <i class="fab fa-whatsapp text-xl"></i>
+                </a>
+            </div>
+            </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
